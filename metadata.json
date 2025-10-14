@@ -1,0 +1,8 @@
+{
+  "name": "HITMi",
+  "description": "A sleek and modern chat application powered by the Gemini API. Engage in seamless, streaming conversations with an advanced AI.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
