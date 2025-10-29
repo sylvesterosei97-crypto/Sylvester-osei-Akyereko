@@ -1,6 +1,6 @@
 import React from 'react';
 import { Message, Role } from '../types';
-import { UserIcon, ModelIcon } from './Icon';
+import { UserIcon } from './Icon';
 
 const MediaContent: React.FC<{ message: Message }> = ({ message }) => {
     if (!message.mediaData || !message.mediaType) {
@@ -55,20 +55,20 @@ const ChatBubbleContent: React.FC<{ text: string }> = ({ text }) => {
     );
 };
 
-export const ChatBubble: React.FC<{ message: Message; profilePicture: string | null }> = ({ message, profilePicture }) => {
-  const isUser = message.role === Role.USER;
+export const ChatBubble: React.FC<{ message: Message; profilePicture: string | null; currentUser: string }> = ({ message, profilePicture, currentUser }) => {
+  const isUser = message.sender === currentUser;
   const bubbleClasses = isUser
     ? 'bg-blue-600 text-white rounded-l-2xl rounded-tr-2xl'
     : 'bg-gray-700 text-gray-200 rounded-r-2xl rounded-tl-2xl';
   const containerClasses = isUser ? 'justify-end' : 'justify-start';
   
-  const ModelAvatar = ModelIcon;
+  const PeerAvatar = UserIcon;
 
   return (
     <div className={`flex items-start gap-3 my-4 ${containerClasses}`}>
       {!isUser && (
         <div className="flex-shrink-0 h-8 w-8 rounded-full bg-gray-600 flex items-center justify-center">
-          <ModelAvatar className="h-5 w-5 text-gray-300" />
+          <PeerAvatar className="h-5 w-5 text-gray-300" />
         </div>
       )}
       <div className={`max-w-md md:max-w-2xl px-5 py-3 shadow-sm ${bubbleClasses}`}>

@@ -3,7 +3,7 @@ import { sendVerificationCode, verifyCode } from '../services/authService';
 import { ModelIcon } from './Icon';
 
 interface SignInViewProps {
-    onSignInSuccess: () => void;
+    onSignInSuccess: (phoneNumber: string) => void;
 }
 
 type SignInStep = 'phone' | 'code';
@@ -43,7 +43,7 @@ export const SignInView: React.FC<SignInViewProps> = ({ onSignInSuccess }) => {
         setIsLoading(true);
         try {
             await verifyCode(verificationCode);
-            onSignInSuccess();
+            onSignInSuccess(phoneNumber);
         } catch (err) {
             setError(err instanceof Error ? err.message : "An unknown error occurred.");
         } finally {

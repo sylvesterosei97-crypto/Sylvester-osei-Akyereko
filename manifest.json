@@ -1,0 +1,17 @@
+{
+  "short_name": "HITMi",
+  "name": "HITMi - AI Chat",
+  "description": "A sleek and modern chat application powered by the Gemini API. Engage in seamless, streaming conversations with an advanced AI.",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>",
+      "type": "image/svg+xml",
+      "sizes": "192x192 512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#1f2937",
+  "background_color": "#111827"
+}

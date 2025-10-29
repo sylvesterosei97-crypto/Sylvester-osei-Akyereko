@@ -1,12 +1,12 @@
 export enum Role {
   USER = 'user',
-  MODEL = 'model',
+  PEER = 'peer',
 }
 
-// FIX: Add and export the Message interface to resolve import errors across the application.
 export interface Message {
   id: string;
-  role: Role;
+  sender: string;
+  recipient: string;
   text: string;
   timestamp: number;
   mediaData?: string;
